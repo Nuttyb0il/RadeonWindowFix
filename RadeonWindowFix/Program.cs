@@ -25,7 +25,7 @@ namespace RadeonWindowFix
             Console.WriteLine("[+] Finding Radeon Processes..", Console.ForegroundColor = ConsoleColor.Yellow);
             foreach (Process p in Process.GetProcesses())
             {
-                if(p.ProcessName.ToLower().Contains("radeon") && p.ProcessName.ToLower() != "radeonwindowfix" || p.ProcessName.ToLower().Contains("amd")) // is a radeon process
+                if(p.ProcessName.ToLower().Contains("radeon") && p != Process.GetCurrentProcess() || p.ProcessName.ToLower().Contains("amd")) // is a radeon process
                 {
                     Console.WriteLine("[+] Attempting to kill : " + p.ProcessName, Console.ForegroundColor = ConsoleColor.Green);
                     try
